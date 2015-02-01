@@ -7,9 +7,17 @@
 
 import xlsxwriter
 
+# Create the file
 workbook = xlsxwriter.Workbook('FabLab-BusinessPlan.xlsx')
-worksheet = workbook.add_worksheet()
 
-worksheet.write('A1', 'Hello world')
+# Create the worksheets
+expenses = workbook.add_worksheet('Expenses')
+activities = workbook.add_worksheet('Activities')
+membership = workbook.add_worksheet('Membership')
+total = workbook.add_worksheet('Total')
 
+# Add content to the Expenses worksheet
+expenses.write('A1', 'Hello world')
+
+# Save and close the file
 workbook.close()
