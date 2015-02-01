@@ -35,12 +35,12 @@ total_style.set_bold()
 
 # Add a style for money
 money_style = workbook.add_format()
-money_style.set_num_format('0.00')
+money_style.set_num_format('$ 0.00')
 
 # Add a style for money totals
 money_total_style = workbook.add_format()
 # Add green/red color for positive/negative numbers
-money_total_style.set_num_format('[Green]General;[Red]-General;General')
+money_total_style.set_num_format('[Green]$ 0.00;[Red]$ -0.00;$ 0.00')
 
 
 # Add content -------------------------------------------------------------
