@@ -34,19 +34,28 @@ total_style.set_bg_color('FAECC5')
 total_style.set_bold()
 
 # Add a style for money
-money_style = workbook.add_format({'num_format': u'€#,##0'})
+money_style = workbook.add_format()
+money_style.set_num_format('0.00')
+
+# Add a style for money totals
+money_total_style = workbook.add_format()
 # Add green/red color for positive/negative numbers
-#money_style.set_num_format('[Green]General;[Red]-General;General')
-# Add a number format for cells with money 
-#money_style.set_num_format('0 "dollar and" .00 "cents"')
+money_total_style.set_num_format('[Green]General;[Red]-General;General')
 
 
 # Add content -------------------------------------------------------------
 
+# Dummy values
+item_value = 0.00
+
+# Set the width of the columns
+expenses.set_column('A:A', 10)
+
 # Add content to the Expenses worksheet
 expenses.write('A1', 'Hello world', bold_style)
-expenses.write('A2', '12.33', money_style)
-expenses.write('A3', 'Total', total_style)
+expenses.write('A2', item_value, money_style)
+expenses.write('A3', item_value, money_style)
+expenses.write('A4', '=SUM(A2:A3)', money_total_style)
 
 
 # Save document -------------------------------------------------------------
