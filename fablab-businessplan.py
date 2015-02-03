@@ -41,6 +41,7 @@ money_style.set_num_format('$ 0.00')
 money_total_style = workbook.add_format()
 # Add green/red color for positive/negative numbers
 money_total_style.set_num_format('[Green]$ 0.00;[Red]$ -0.00;$ 0.00')
+total_style.set_bg_color('FAECC5')
 
 
 # Add content -------------------------------------------------------------
@@ -62,3 +63,9 @@ expenses.write('A4', '=SUM(A2:A3)', money_total_style)
 
 # Save and close the file
 workbook.close()
+
+# Open the file in OSX, for debug
+import subprocess
+import os
+where = os.path.dirname(os.path.abspath(__file__))
+subprocess.check_output(["./soffice",where+"/FabLab-BusinessPlan.xlsx"], cwd="/Applications/LibreOffice.app/Contents/MacOS")
